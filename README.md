@@ -1,62 +1,53 @@
-# CodeIgniter 4 Application Starter
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="./assets/icon.png" alt="Logo" width="80" height="80">
+  </a>
 
-## What is CodeIgniter?
+<h3 align="center">Sistem Informasi Pupuk</h3>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+  <p align="center">
+    Gatau ya?
+    <br />
+  </p>
+</div>
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+<!-- GETTING STARTED -->
+## Getting Started
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+# PUPAK INDONESIA
+Ikuti perintah berikut biar CI nya bisa lari
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+### Built With
 
-## Installation & updates
+* CI4
+* JQuery
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Prerequisites
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Penting! install bahan dibawah ini:
+* composer
+* a functional brain
 
-## Setup
+### Installation
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+* Install Dependencies
+   ```sh
+   composer install
+   ```
+* Migrate Database
+   ```sh
+   php spark migrate
+   ```
+* Insert User Admin
+   ```sh
+   phpmyadmin -> DB:pupak -> TBL:admin -> MENU:SQL 
+   copy paste sql dibawah ke text area SQLnya.
+   INSERT INTO `admin`(`id_admin`, `nama_admin`, `username`, `password`, `created_at`, `updated_at`) VALUES ('1','admin','admin','$2a$12$9itAdyuzRwG7eDW/UmLl6OV1qGEGGWG1Hj75ZW7oP7jzojjoPrjKS','[value-5]','[value-6]')
+   ```
+* Run App
+   ```sh
+   php spark serve
+   ```
 
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+<p align="right">(<a href="#readme-top">Balik Ke atas</a>)</p>
