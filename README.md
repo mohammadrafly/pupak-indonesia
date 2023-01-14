@@ -43,7 +43,7 @@ Penting! install bahan dibawah ini:
    ```sh
    phpmyadmin -> DB:pupak -> TBL:admin -> MENU:SQL 
    copy paste sql dibawah ke text area SQLnya.
-   INSERT INTO `admin`(`id_admin`, `nama_admin`, `username`, `password`, `created_at`, `updated_at`) VALUES ('1','admin','admin','$2a$12$9itAdyuzRwG7eDW/UmLl6OV1qGEGGWG1Hj75ZW7oP7jzojjoPrjKS','[value-5]','[value-6]')
+   INSERT INTO `admin`(`id_admin`, `nama_admin`, `username`, `password`) VALUES ('1','admin','admin','$2a$12$9itAdyuzRwG7eDW/UmLl6OV1qGEGGWG1Hj75ZW7oP7jzojjoPrjKS')
    ```
 * Run App
    ```sh
