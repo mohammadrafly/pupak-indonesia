@@ -1,0 +1,482 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F3FFF4;
+}
+
+/* Navbar style */
+
+.navbar {
+    z-index: 3;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+* {
+    z-index: 2;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.nav-link {
+    font-size: 16px;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+/* Hero section style */
+
+#hero {
+    background: linear-gradient(160deg, #61876E, #F3FFF4);
+    height: 100vh;
+    width: 100%;
+
+}
+
+.img-hero {
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-tagline p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    line-height: 30px;
+    position: relative;
+}
+
+.hero-tagline h4 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    line-height: 30px;
+    font-weight: 500;
+    position: relative;
+}
+
+.hero-tagline h1 {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 72px;
+    width: 85%;
+}
+
+.button-primary-login {
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 15px 30px 15px 30px;
+    background-color: #61876E;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    transition: all .3s ease-in;
+}
+
+.button-primary-login:hover {
+    background-color: #97DECE;
+    text-decoration: none;
+    color: #000;
+}
+
+.button-lg-primary {
+    width: 237px;
+    height: 70px;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 15px 30px 15px 30px;
+    background-color: #61876E;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+
+    transition: all .3s ease-in;
+}
+
+.button-lg-primary:hover {
+    background-color: #97DECE;
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+/* Layanan section style */
+#layanan {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #fff, #A6BB8D);
+    height: 100vh;
+    width: 100%;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 500;
+    color: #3C6255;
+}
+
+.sub-tittle {
+    font-size: 18px;
+    color: #000;
+}
+
+.card-layanan {
+    margin-top: 60px;
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.005);
+
+    transition: all .2s ease-in;
+}
+
+.img-layanan {
+    margin-top: -10px;
+    width: 25%;
+    background-color: #227C70;
+    border-radius: 50%;
+    position: relative;
+
+    transition: all .1s ease-in;
+}
+
+.card-layanan h3 {
+    margin-top: -30px;
+    color: #000;
+    font-size: 24px;
+
+    transition: all .3s ease-in;
+}
+
+.card-layanan p {
+    color: #000;
+    font-size: 15px;
+
+    transition: all .4s ease-in;
+}
+
+/* Hover */
+.card-layanan:hover {
+    margin-top: 60px;
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: linear-gradient(200deg, rgb(61, 56, 56), #227C70);
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.005);
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover .img-layanan {
+    background-color: #fff;
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover h3 {
+    margin-top: -30px;
+    color: #fff;
+    font-size: 24px;
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover p {
+    color: #fff;
+    font-size: 15px;
+
+    transition: all .2s ease-in;
+}
+
+
+/* Search Section style */
+
+#search {
+    background-image: url(images/foto2.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#search h2 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 72px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+}
+
+#search p {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+}
+
+.input-cari {
+    height: 80px;
+}
+
+.input-cari:focus {
+    border: none;
+}
+
+.input-cari .button-secondary {
+    width: 200px;
+    height: 80px;
+    background-size: rgba(255, 255, 255, 0.8);
+    color: #61876E;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0 0 0 10px;
+
+}
+
+.input-cari .button-primary {
+    height: 65px;
+    background-color: #61876E;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.nav-tabs {
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 0 0;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #B6E2A1;
+    border-radius: 0 9px 0 0;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link {
+    color: #000;
+    border: none;
+}
+
+
+/* Section rekomendasi style */
+#rekomendasi {
+    padding: 100px 0;
+    background: linear-gradient(380deg, #61876E, #F3FFF4);
+    height: 160vh;
+    width: 100%;
+}
+
+
+.card {
+    height: 460px;
+    width: 95%;
+    border: none;
+}
+
+.card-body h4 {
+    color: #000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: .8rem;
+}
+
+.card-body p {
+    color: #141414;
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+.card:hover {
+    background: linear-gradient(200deg, rgb(61, 56, 56), #61876E);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+    transition: all ease-in-out .3s;
+}
+
+.card:hover .card-body h4 {
+    color: #fff;
+    transition: all ease-in-out .2s;
+}
+
+.card:hover .card-body p {
+    color: #fff;
+    transition: all ease-in-out .3s;
+}
+
+.card-kualitas {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10px;
+    background-color: #fff;
+
+}
+
+.card-kualitas span {
+    font-weight: 500;
+    margin-top: 18px;
+    color: #000;
+
+}
+
+.card-kualitas p {
+    font-size: 12px;
+    color: #000;
+}
+
+.btn-spesifikasi {
+    text-decoration: none;
+
+}
+
+/* Contact section style */
+#contact {
+    background-image: url(images/23512.png);
+    height: 130vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#contact .overlay {
+    background: rgba(0, 0, 0, .5);
+
+}
+
+#contact .container {
+    padding: 148px 0 148px 0;
+}
+
+#contact h3 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 60px;
+    color: #fff;
+}
+
+#contact h6 {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 27px;
+    color: #fff;
+    margin: 19px 0 14px 0;
+}
+
+.kontak a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+    width: 332px;
+    display: inline-block;
+}
+
+.linkpupak {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.card-contact {
+    width: 100%;
+    height: 445px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 52px 48px;
+}
+
+.card-contact h2 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    color: #3C6255;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.form-control {
+    position: relative;
+    background: #c6c6c6c6;
+    height: 65px !important;
+    border-radius: 0;
+}
+
+.form-floating label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    color: #717171;
+}
+
+.button-kirim {
+    width: 100%;
+    height: 75px;
+    background: #61876E;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #fff;
+}
+
+.button-kirim:hover {
+    background: #97DECE;
+}
+
+footer {
+    width: 100%;
+    height: 270px;
+    background: #c3c3c3;
+}
+
+.wrapper {
+    bottom: 1%;
+    color: #000;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+footer a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000;
+    text-decoration: none;
+}
