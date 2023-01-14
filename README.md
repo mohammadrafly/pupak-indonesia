@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mohammadrafly/pupak-indonesia">
-    <img src="images/logo-project.png" alt="Logo" width="80" height="80">
+    <img src="images/logo-project.png" alt="Logo" width="120" height="80">
   </a>
 
 <h3 align="center">Sistem Informasi Pupuk</h3>
