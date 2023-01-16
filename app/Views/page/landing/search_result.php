@@ -36,7 +36,7 @@
                   <div style="height: 50%; width: 100%;">
                     <img
                         class="align-self-md-center"
-                        src="<?= base_url('pupukobat/'. $data->picture) ?>"
+                        src="<?= base_url('pupukobat/'. $data->P_picture) ?>"
                         width="384px"
                         height="384px"
                         alt=""

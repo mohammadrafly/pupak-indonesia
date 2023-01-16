@@ -160,7 +160,7 @@
                                     <div class="form-group">
                                         <label for="harga">Harga</label>
                                         <input type="number" class="form-control" name="harga" placeholder="Contoh: 10000">
-                                    </div>      
+                                    </div>     
                                 </div>
                             </form>
                     </div>

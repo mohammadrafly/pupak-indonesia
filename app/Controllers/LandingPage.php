@@ -55,6 +55,7 @@ class LandingPage extends BaseController
         $data = [
             'content' => $model->getTheKeyword($keyword)->getResult(),
         ];
+        //dd($data);
         return view('page/landing/search_result', $data);
     }
 }

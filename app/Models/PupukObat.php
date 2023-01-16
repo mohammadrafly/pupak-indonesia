@@ -52,9 +52,21 @@ class PupukObat extends Model
     function getTheKeyword($keyword)
     {
         $query = $this->db->table('pupukobat')
+            ->select('
+                pupukobat.*,
+                pupukobat.picture as P_picture,
+                pupukobat.id_pupuk as idPupuk,
+                tanaman_group.*,
+                tanaman_group.id as idTG,
+                tanaman.*,
+                tanaman.picture as T_picture
+            ')
+            ->join('tanaman_group', 'pupukobat.id_pupuk = tanaman_group.id_pupukobat')
+            ->join('tanaman', 'tanaman_group.id_tanaman = tanaman.id_tanaman')
             ->like('nama_pupuk', $keyword)
             ->orLike('jenis_pupuk', $keyword)
-            ->orLike('created_at', $keyword)
+            ->orLike('tanaman.nama_tanaman', $keyword)
+            ->orLike('tanaman.jenis_tanaman', $keyword)
             ->get();
         return $query;
     }

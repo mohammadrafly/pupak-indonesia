@@ -287,14 +287,17 @@ class Dashboard extends BaseController
         $model = new PupukObat();
         $id = $this->request->getPost('id');
         $data = [
-            'nama_pupuk' => $this->request->getPost('nama_pupuk'),
+            'nama_pupuk'  => $this->request->getPost('nama_pupuk'),
             'jenis_pupuk' => $this->request->getPost('jenis_pupuk'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'deskripsi'   => $this->request->getPost('deskripsi'),
+            'berat'       => $this->request->getPost('berat'),
+            'harga'       => $this->request->getPost('harga'), 
+            'updated_at'  => date('Y-m-d H:i:s'),
         ];
         $model->update($id, $data);
         return $this->response->setJSON([
             'isUpdated' => true,
-        ]);
+        ]);   
     }
 
     public function deletePupukObat($id)

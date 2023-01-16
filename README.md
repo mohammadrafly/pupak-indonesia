@@ -39,10 +39,14 @@ Penting! install bahan dibawah ini:
    ```sh
    composer install
    ```
-* Migrate Database
+* Migrate Database |
   skip step ini jika sudah memiliki DB pupak
    ```sh
    php spark migrate
+   ```
+
+   ```sh
+   php spark migrate:refresh
    ```
 * Insert User Admin
    phpmyadmin -> DB:pupak -> TBL:admin -> MENU:SQL 
