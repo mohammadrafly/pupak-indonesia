@@ -20,9 +20,25 @@ class PupukObat extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'deskripsi' => [
+                'type'       => 'TEXT',
+                'constraint' => '255',
+            ],
+            'berat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',  
+            ],
+            'harga' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
             'jenis_pupuk' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+            ],
+            'tanaman_tags' => [
+                'type'       => 'INT',
+                'constraint' => 5,
             ],
             'picture' => [
                 'type'       => 'VARCHAR',
@@ -38,6 +54,7 @@ class PupukObat extends Migration
             ],
         ]);
         $this->forge->addKey('id_pupuk', true);
+        $this->forge->addKey('tanaman_tags');
         $this->forge->createTable('pupukobat');
     }
 

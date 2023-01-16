@@ -39,8 +39,21 @@
                                 <input type="jenis_pupuk" class="form-control" name="jenis_pupuk" placeholder="Jenis Pupuk">
                             </div>
                             <div class="form-group">
+                                <label>Tanaman</label>
+                                <div class="">
+                                    <select 
+                                        style="width: 100%"
+                                        class="js-example-responsive form-control" 
+                                        name="tanaman[]" 
+                                        multiple="multiple"
+                                        placeholder="Pilih Tanaman yang cocok untuk pupuk ini"
+                                    >
+                                    </select>
+                                </div>
+                            </div>       
+                            <div class="form-group">
                                 <label for="formFile" class="form-label">Foto Pupuk</label>
-                                <input class="form-control form-control-sm" name="picture" id="formFile" type="file">
+                                <input class="form-control" name="picture" id="formFile" type="file">
                             </div>
                             <div class="mt-3">
                                 <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Simpan</button>
@@ -138,8 +151,25 @@
                     </div>
                 </div>
                 </div>
+                <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
                 <script>
+                    $(document).ready(function() {
+                        $('.js-example-responsive').select2({
+                                ajax: {
+                                url: '<?php echo base_url('dashboard/tanaman/fetch');?>',
+                                dataType: 'json',
+                                delay: 250,
+                                processResults: function(data){
+                                    return {
+                                    results: data
+                                    };
+                                },
+                                cache: true
+                                }
+                        });
+                    });
                     function editPupuk(id) {
                         save_method = 'update';
                         $('#form')[0].reset(); 

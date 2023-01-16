@@ -50,6 +50,7 @@ $routes->post('dashboard/tanaman/add', 'Dashboard::saveTanaman');
 $routes->get('dashboard/tanaman/edit/(:num)', 'Dashboard::editTanaman/$1');
 $routes->post('dashboard/tanaman/update', 'Dashboard::updateTanaman');
 $routes->get('dashboard/tanaman/delete/(:num)', 'Dashboard::deleteTanaman/$1');
+$routes->get('dashboard/tanaman/fetch', 'Dashboard::fetchTanaman');
 //PupukObat
 $routes->get('dashboard/pupukobat', 'Dashboard::dataPupukObat');
 $routes->post('dashboard/pupukobat/add', 'Dashboard::savePupukObat');

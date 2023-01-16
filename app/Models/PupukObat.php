@@ -49,10 +49,8 @@ class PupukObat extends Model
     function getTheKeyword($keyword)
     {
         $query = $this->db->table('pupukobat')
-            //->join('tanaman', 'pupukobat.id_tanaman = tanaman.id_tanaman')
             ->like('nama_pupuk', $keyword)
             ->orLike('jenis_pupuk', $keyword)
-            //->orLike('id_tanaman', $keyword)
             ->orLike('created_at', $keyword)
             ->get();
         return $query;

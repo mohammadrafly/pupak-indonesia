@@ -190,6 +190,17 @@ class Dashboard extends BaseController
             'isConfirm' => true,
         ]);
     }
+
+    public function fetchTanaman()
+    {
+        $model = new Tanaman();
+        $keyword = $this->request->getVar('q');
+        $data = $model->getTheKeyword($keyword)->getResult();
+        foreach ($data as $result) {
+            $value[] = (float) $result->id_tanaman;
+        }
+        echo json_encode($value);
+    }
     //PupukObat
     public function dataPupukObat()
     {

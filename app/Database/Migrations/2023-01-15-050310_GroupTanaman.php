@@ -5,33 +5,24 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\RawSql;
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class GroupTanaman extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_admin' => [
+            'id' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'nama_admin' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
+            'id_tanaman' => [
+                'type'       => 'INT',
+                'constraint' => 5,
             ],
-            'username' => [
-                'type' => 'VARCHAR',
-                'constraint' => '150',
-            ],
-            'password' => [
-                'type' => 'VARCHAR',
-                'constraint' => '150',
-            ],
-            'picture' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
+            'id_pupukobat' => [
+                'type'       => 'INT',
+                'constraint' => 5,
             ],
             'created_at' => [
                 'type'    => 'TIMESTAMP',
@@ -42,12 +33,14 @@ class Admin extends Migration
                 'default' => new RawSql('CURRENT_TIMESTAMP'),
             ],
         ]);
-        $this->forge->addKey('id_admin', true);
-        $this->forge->createTable('admin');
+        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_tanaman');
+        $this->forge->addKey('id_pupukobat');
+        $this->forge->createTable('tanaman_group');
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin');
+        $this->forge->dropTable('tanaman_group');
     }
 }

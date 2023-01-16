@@ -4,22 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Tanaman extends Model
+class TanamanGroup extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tanaman';
-    protected $primaryKey       = 'id_tanaman';
+    protected $table            = 'tanaman_group';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nama_tanaman',
-        'jenis_tanaman',
-        'picture',
-        'created_at',
-        'updated_at',
+        'id_tanaman',
+        'id_pupukobat'
     ];
 
     // Dates
@@ -45,14 +42,4 @@ class Tanaman extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    function getTheKeyword($keyword)
-    {
-        $query = $this->db->table('tanaman')
-            ->like('nama_tanaman', $keyword)
-            ->orLike('jenis_tanaman', $keyword)
-            ->limit(5)
-            ->get();
-        return $query;
-    }
 }
