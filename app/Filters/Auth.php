@@ -25,11 +25,9 @@ class Auth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('WesLogin'))
-        {
+        if (!session()->get('WesLogin')) {
             session()->setFlashdata('error', 'Anda tidak memiliki akses ke halaman ini!');
-            return redirect()
-                ->to('/');
+            return redirect()->to('/');
         }
     }
 

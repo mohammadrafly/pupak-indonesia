@@ -11,7 +11,7 @@
 
         <div class="row mt-3">
           <div class="col-md-6">
-            <div class="card-layanan">
+            <div class="card-layanan" style="border-radius: 15px">
               <div class="circle-icon position-relative mx-auto">
                 <img
                   src="<?= base_url('assets/images/layanan.png')?>"
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card-layanan">
+            <div class="card-layanan" style="border-radius: 15px">
               <div class="circle-icon position-relative mx-auto">
                 <img
                   src="<?= base_url('assets/images/produk.png') ?>"

@@ -49,7 +49,7 @@
             </div>
 
             <div class="col-md-6">
-              <div class="card-contact w-100">
+              <div class="card-contact w-100" style="border-radius: 15px">
                 <form id="SignIn">
                   <h2>Tulis Pertanyaan dibawah!</h2>
                   <div class="form-floating mb-3">

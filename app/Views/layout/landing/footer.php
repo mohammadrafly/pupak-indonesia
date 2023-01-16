@@ -1,4 +1,5 @@
-    <footer class="d-flex align-items-center position-relative">
+    <footer class="d-flex align-items-center" style="
+   bottom: 0;">
       <div class="container-fluid">
         <div class="container">
           <div class="row">
@@ -13,7 +14,7 @@
             </div>
           </div>
 
-          <div class="row position-absolute wrapper start-50 translate-middle">
+          <div class="row position-absolute">
             <div class="col-12"></div>
             <p>&copy; 2023. <b>Pupak Indonesia</b> All Rights Reserved</p>
           </div>
