@@ -97,6 +97,7 @@
                     <?php endforeach ?>
                   </tbody>
                 </table>
+                <?= $pager->links('tanaman', 'pagination'); ?>
               </div>
             </div>
           </div>

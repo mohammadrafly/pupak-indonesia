@@ -29,36 +29,46 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+//LandingPage
 $routes->get('/', 'LandingPage::index');
 $routes->post('kirim/pesan', 'LandingPage::sendMessage');
 $routes->get('pupuk/(:num)', 'LandingPage::singleProduct/$1');
 $routes->get('pupuk/cari', 'LandingPage::Search');
-
+//Auth
 $routes->match(['GET', 'POST'], 'signin', 'Auth::SignIn');
-$routes->get('signout', 'Auth::SignOut');
-$routes->get('dashboard', 'Dashboard::index');
-//Profile
-$routes->get('dashboard/profile/(:any)', 'Dashboard::dataProfile/$1');
-$routes->post('dashboard/profile/update', 'Dashboard::updateProfile');
-$routes->post('dashboard/profile/update/password', 'Dashboard::updatePassword');
-//User
-$routes->get('dashboard/user', 'Dashboard::dataAdmin');
-$routes->post('dashboard/user/add', 'Dashboard::saveUser');
-//Tanaman
-$routes->get('dashboard/tanaman', 'Dashboard::dataTanaman');
-$routes->post('dashboard/tanaman/add', 'Dashboard::saveTanaman');
-$routes->get('dashboard/tanaman/edit/(:num)', 'Dashboard::editTanaman/$1');
-$routes->post('dashboard/tanaman/update', 'Dashboard::updateTanaman');
-$routes->get('dashboard/tanaman/delete/(:num)', 'Dashboard::deleteTanaman/$1');
-$routes->get('dashboard/tanaman/fetch', 'Dashboard::fetchTanaman');
-//PupukObat
-$routes->get('dashboard/pupukobat', 'Dashboard::dataPupukObat');
-$routes->post('dashboard/pupukobat/add', 'Dashboard::savePupukObat');
-$routes->get('dashboard/pupukobat/edit/(:num)', 'Dashboard::editPupukObat/$1');
-$routes->post('dashboard/pupukobat/update', 'Dashboard::updatePupukObat');
-$routes->get('dashboard/pupukobat/delete/(:num)', 'Dashboard::deletePupukObat/$1');
-//Pesan
-$routes->get('dashboard/pesan', 'Dashboard::dataPesan');
+//Dashboard
+$routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
+    $routes->get('signout', 'Auth::SignOut');
+    $routes->get('/', 'Dashboard::index');
+    //Profile
+    $routes->group('profile', function ($routes) {
+        $routes->get('/(any)', 'Dashboard::dataProfile/$1');
+        $routes->post('update', 'Dashboard::updateProfile');
+        $routes->post('update/password', 'Dashboard::updatePassword');
+    });
+    //User
+    $routes->group('user', function ($routes) {
+        $routes->get('/', 'Dashboard::dataAdmin');
+        $routes->post('add', 'Dashboard::saveUser');
+    });
+    //Tanaman
+    $routes->group('tanaman', function ($routes) {
+        $routes->get('/', 'Dashboard::dataTanaman');
+        $routes->post('add', 'Dashboard::saveTanaman');
+        $routes->get('edit/(:num)', 'Dashboard::editTanaman/$1');
+        $routes->post('update', 'Dashboard::updateTanaman');
+        $routes->get('delete/(:num)', 'Dashboard::deleteTanaman/$1');
+    });
+    //PupukObat
+    $routes->group('pupukobat', function ($routes) {
+        $routes->get('/', 'Dashboard::dataPupukObat');
+        $routes->post('add', 'Dashboard::savePupukObat');
+        $routes->get('edit/(:num)', 'Dashboard::editPupukObat/$1');
+        $routes->post('update', 'Dashboard::updatePupukObat');
+        $routes->get('delete/(:num)', 'Dashboard::deletePupukObat/$1');
+    });
+    $routes->get('pesan', 'Dashboard::dataPesan');
+});
 
 /*
  * --------------------------------------------------------------------

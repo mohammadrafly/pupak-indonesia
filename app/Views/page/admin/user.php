@@ -84,6 +84,7 @@
                     <?php endforeach ?>
                   </tbody>
                 </table>
+                <?= $pager->links('admin', 'pagination'); ?>
               </div>
             </div>
           </div>

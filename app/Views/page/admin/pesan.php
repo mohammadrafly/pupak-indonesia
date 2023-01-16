@@ -38,6 +38,7 @@
                     <?php endforeach ?>
                   </tbody>
                 </table>
+                <?= $pager->links('pesan', 'pagination'); ?>
               </div>
             </div>
           </div>

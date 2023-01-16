@@ -18,6 +18,7 @@ class Admin extends Model
         'nama_admin',
         'username',
         'password',
+        'picture',
         'created_at',
         'updated_at',
     ];

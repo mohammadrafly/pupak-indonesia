@@ -9,16 +9,17 @@
         <div class="row">
         <?php foreach($content as $data): ?>
           <div class="col-4 mb-4">
-            <div class="card p-2" style="width: 25rem">
+            <div class="card p-2" style="width: 25rem; border-radius: 15px;">
               <img
                 class="align-self-md-center"
                 src="<?= base_url('pupukobat/'. $data['picture']) ?>"
-                width="250"
-                height="250"
+                width="100%"
                 alt=""
+                style="border-radius: 15px;"
               />
               <div class="card-body">
                 <h4><?= $data['nama_pupuk'] ?></h4>
+                <p><?= $data['jenis_pupuk'] ?> | <?= number_to_currency($data['harga'], 'IDR')?>/<?= $data['berat'] ?></p>
                 <a href="<?= base_url('pupuk/'.$data['id_pupuk']) ?>" class="text-info btn-spesifikasi"
                   >Spesifikasi...
                 </a>
@@ -44,6 +45,7 @@
           </div>
           <?php endforeach ?>
         </div>
+        <?= $pager->links('pupuk', 'pagination'); ?>
       </div>
     </section>
     <!--  Rekomendasi Section end -->

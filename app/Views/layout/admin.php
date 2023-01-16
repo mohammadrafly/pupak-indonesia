@@ -84,7 +84,7 @@
                         }).then(function (result) {
                             if (result.value) {
                                 $.ajax({
-                                    url: "<?= base_url('signout')?>",
+                                    url: "<?= base_url('dashboard/signout')?>",
                                     type: "GET",
                                     dataType: 'JSON',
                                     success: function (respond) {

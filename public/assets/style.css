@@ -261,6 +261,20 @@ h2 {
     border-radius: 0px 15px 15px 0px;
 }
 
+.navbar.scrolled {
+    background-color: #ffffff !important;
+    transition: background-color 200ms linear;
+    color: #61876E;
+}
+
+.navbar.scrolled #navigation .logo-text{
+    color: #61876E !important;
+}
+
+.navbar.scrolled #navigation .nav-link{
+    color: #61876E !important;
+}
+
 .nav-tabs {
     border: none;
 }

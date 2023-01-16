@@ -3,9 +3,22 @@
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-md-6 hero-tagline">
-            <br />
-            <br />
-            <p><span class="fw-bold">Hai</span>, Selamat Datang!</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+                    <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <?php echo session()->getFlashdata('error'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?php echo session()->getFlashdata('success'); ?>
+                        </div>
+                    <?php endif; ?>
+            <p><span class="fw-bold"></span></p>
             <h1>Temukan Beragam Pupuk Tanaman Berkualitas Disini</h1>
             <h4>
               <span class="fw-bold">Solusi Pertanian</span> Dengan Kebutuhan

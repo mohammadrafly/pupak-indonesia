@@ -2,8 +2,8 @@
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100"
     >
-      <div class="container">
-        <a class="navbar-brand" href="<?= base_url('/') ?>">
+      <div class="container" id="navigation">
+        <a class="navbar-brand logo-text" href="<?= base_url('/') ?>">
           <img
             src="<?= base_url('assets/images/Pupak Indonesia.png') ?>"
             alt=""

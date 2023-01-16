@@ -42,4 +42,18 @@ class TanamanGroup extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function joinTanamanPupuk($id)
+    {
+        $query = $this->db->table('tanaman_group')
+            ->select('
+                tanaman.nama_tanaman,
+                tanaman.jenis_tanaman
+            ')
+            ->join('tanaman', 'tanaman_group.id_tanaman = tanaman.id_tanaman', 'left')
+            ->join('pupukobat', 'tanaman_group.id_pupukobat = pupukobat.id_pupuk', 'left')
+            ->where('id_pupukobat', $id)
+            ->get();
+        return $query;
+    }
 }

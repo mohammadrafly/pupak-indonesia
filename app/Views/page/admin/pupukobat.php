@@ -39,17 +39,24 @@
                                 <input type="jenis_pupuk" class="form-control" name="jenis_pupuk" placeholder="Jenis Pupuk">
                             </div>
                             <div class="form-group">
-                                <label>Tanaman</label>
-                                <div class="">
-                                    <select 
-                                        style="width: 100%"
-                                        class="js-example-responsive form-control" 
-                                        name="tanaman[]" 
-                                        multiple="multiple"
-                                        placeholder="Pilih Tanaman yang cocok untuk pupuk ini"
-                                    >
-                                    </select>
-                                </div>
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="berat">Berat</label>
+                                <input type="text" class="form-control" name="berat" placeholder="Contoh: 10 Kg">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="number" class="form-control" name="harga" placeholder="Contoh: 10000">
+                            </div>
+                            <div class="form-group">
+                                <label>Untuk Tanaman</label>
+                                <select class="form-control" name="tanaman[]" data-width="100%" data-live-search="true" multiple required>
+                                    <?php foreach ($tanaman as $row) :?>
+                                        <option value="<?php echo $row['id_tanaman'];?>"><?php echo $row['nama_tanaman'];?></option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>       
                             <div class="form-group">
                                 <label for="formFile" class="form-label">Foto Pupuk</label>
@@ -110,6 +117,7 @@
                     <?php endforeach ?>
                   </tbody>
                 </table>
+                <?= $pager->links('pupuk', 'pagination'); ?>
               </div>
             </div>
           </div>
@@ -141,6 +149,18 @@
                                             <input name="jenis_pupuk" placeholder="Jenis Pupuk" class="form-control" type="text">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="berat">Berat</label>
+                                        <input type="text" class="form-control" name="berat" placeholder="Contoh: 10 Kg">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="harga">Harga</label>
+                                        <input type="number" class="form-control" name="harga" placeholder="Contoh: 10000">
+                                    </div>      
                                 </div>
                             </form>
                     </div>
@@ -155,21 +175,6 @@
                 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
                 <script>
-                    $(document).ready(function() {
-                        $('.js-example-responsive').select2({
-                                ajax: {
-                                url: '<?php echo base_url('dashboard/tanaman/fetch');?>',
-                                dataType: 'json',
-                                delay: 250,
-                                processResults: function(data){
-                                    return {
-                                    results: data
-                                    };
-                                },
-                                cache: true
-                                }
-                        });
-                    });
                     function editPupuk(id) {
                         save_method = 'update';
                         $('#form')[0].reset(); 
@@ -185,6 +190,9 @@
                                 $('[name="id"]').val(respond.data.id_pupuk);
                                 $('[name="nama_pupuk"]').val(respond.data.nama_pupuk);
                                 $('[name="jenis_pupuk"]').val(respond.data.jenis_pupuk);
+                                $('[name="deskripsi"]').val(respond.data.deskripsi);
+                                $('[name="berat"]').val(respond.data.berat);
+                                $('[name="harga"]').val(respond.data.harga);
 
                                 $('#modalEdit').modal('show');
                                 $('.modal-title').text('Edit Pupuk'); 
@@ -243,6 +251,8 @@
                                             showConfirmButton: false,
                                             timer: 2000
                                         });
+                                        window.location.reload();
+
                                     },
                                     error: function (xhr, ajaxOptions, thrownError) {
                                         swal.fire("!Opps ", "Something went wrong, try again later", "error");

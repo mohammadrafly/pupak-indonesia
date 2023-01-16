@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Tanaman;
 use App\Models\PupukObat;
 use App\Models\Pesan;
+use App\Models\TanamanGroup;
 use App\Controllers\BaseController;
 
 class Dashboard extends BaseController
@@ -95,7 +96,8 @@ class Dashboard extends BaseController
         $model = new Admin();
         $data = [
             'pages' => 'Data User',
-            'content' => $model->findAll(),
+            'content' => $model->paginate(5, 'admin'),
+            'pager' => $model->pager,
         ];
         return view('page/admin/user', $data);
     }
@@ -119,7 +121,8 @@ class Dashboard extends BaseController
         $model = new Tanaman();
         $data = [
             'pages' => 'Data Tanaman',
-            'content' => $model->findAll(),
+            'content' => $model->paginate(5, 'tanaman'),
+            'pager' => $model->pager,
         ];
         return view('page/admin/tanaman', $data);
     }
@@ -190,24 +193,16 @@ class Dashboard extends BaseController
             'isConfirm' => true,
         ]);
     }
-
-    public function fetchTanaman()
-    {
-        $model = new Tanaman();
-        $keyword = $this->request->getVar('q');
-        $data = $model->getTheKeyword($keyword)->getResult();
-        foreach ($data as $result) {
-            $value[] = (float) $result->id_tanaman;
-        }
-        echo json_encode($value);
-    }
     //PupukObat
     public function dataPupukObat()
     {
         $model = new PupukObat();
+        $tanaman = new Tanaman();
         $data = [
             'pages' => 'Data Pupuk',
-            'content' => $model->findAll()
+            'content' => $model->paginate(5, 'pupuk'),
+            'tanaman' => $tanaman->findAll(),
+            'pager' => $model->pager,
         ];
         return view('page/admin/pupukobat', $data);
     }
@@ -230,20 +225,52 @@ class Dashboard extends BaseController
         $model = new PupukObat();
         if ($img->isValid() && ! $img->hasMoved()) {
             $img->move('pupukobat',$randName);
-            $model->insert([
-                'nama_pupuk' => $this->request->getVar('nama_pupuk'),
-                'jenis_pupuk' => $this->request->getVar('jenis_pupuk'),
-                'picture' => $randName,
-            ]);
-            session()->setFlashData('success','Berhasil menambah pupuk');
-            return redirect()->to('dashboard/pupukobat');
+            $datas = [
+                'nama_pupuk'    => $this->request->getVar('nama_pupuk'),
+                'jenis_pupuk'   => $this->request->getVar('jenis_pupuk'),
+                'picture'       => $randName,
+                'deskripsi'     => $this->request->getVar('deskripsi'),
+                'berat'         => $this->request->getVar('berat'),
+                'harga'         => $this->request->getVar('harga'), 
+            ];
+            $tanaman = $this->request->getVar('tanaman[]');
+            if ($model->insert($datas)) {
+                $group = new TanamanGroup();
+                $id = $model->where('nama_pupuk', $datas['nama_pupuk'])->first();
+                $array = [];
+                for ($i=0; $i < count($tanaman); $i++) {
+                    $data[$i] = [
+                        'id_pupukobat' => $id['id_pupuk'],
+                        'id_tanaman' => $tanaman[$i]
+                    ];
+                }
+                $group->insertBatch($data);
+                session()->setFlashData('success','Berhasil menambah pupuk');
+                return redirect()->to('dashboard/pupukobat');
+            }
         } else {
-            $model->insert([
-                'nama_pupuk' => $this->request->getVar('nama_pupuk'),
-                'jenis_pupuk' => $this->request->getVar('jenis_pupuk'),
-            ]);
-            session()->setFlashData('success','Berhasil menambah pupuk');
-            return redirect()->to('dashboard/pupukobat');
+            $datas = [
+                'nama_pupuk'    => $this->request->getVar('nama_pupuk'),
+                'jenis_pupuk'   => $this->request->getVar('jenis_pupuk'),
+                'deskripsi'     => $this->request->getVar('deskripsi'),
+                'berat'         => $this->request->getVar('berat'),
+                'harga'         => $this->request->getVar('harga'), 
+            ];
+            $tanaman = $this->request->getVar('tanaman[]');
+            if ($model->insert($datas)) {
+                $group = new TanamanGroup();
+                $id = $model->where('nama_pupuk', $datas['nama_pupuk'])->first();
+                $array = [];
+                for ($i=0; $i < count($tanaman); $i++) {
+                    $data[$i] = [
+                        'id_pupukobat' => $id['id_pupuk'],
+                        'id_tanaman' => $tanaman[$i]
+                    ];
+                }
+                $group->insertBatch($data);
+                session()->setFlashData('success','Berhasil menambah pupuk');
+                return redirect()->to('dashboard/pupukobat');
+            }
         }
     }
 
@@ -284,7 +311,8 @@ class Dashboard extends BaseController
         $model = new Pesan();
         $data = [
             'pages' => 'Data Pesan',
-            'content' => $model->findAll(),
+            'content' => $model->paginate(5, 'pesan'),
+            'pager' => $model->pager,
         ];
         return view('page/admin/pesan', $data);
     }

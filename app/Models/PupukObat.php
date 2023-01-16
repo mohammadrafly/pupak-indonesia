@@ -17,6 +17,9 @@ class PupukObat extends Model
     protected $allowedFields    = [
         'nama_pupuk',
         'jenis_pupuk',
+        'deskripsi',
+        'berat',
+        'harga',
         'picture',
         'created_at',
         'updated_at',
