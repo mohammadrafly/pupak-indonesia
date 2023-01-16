@@ -1,5 +1,5 @@
 <br />
-<div align="center">
+<div id="readme-top" align="center">
   <a href="https://github.com/mohammadrafly/pupak-indonesia">
     <img src="images/logo-project.png" alt="Logo" width="120" height="80">
   </a>
@@ -24,7 +24,7 @@ Ikuti langkah-langkah dibawah ini:
 * JQuery
 
 ### Prerequisites
-
+\
 Penting! install bahan dibawah ini:
 * composer
 * phpmyadmin (xampp,laragon)
@@ -34,28 +34,24 @@ Penting! install bahan dibawah ini:
 
 ### Installation
 
-* Install Dependencies
+* Install Dependencies |
   Jika terjadi error, hapus composer.lock terlebih dahulu
    ```sh
    composer install
    ```
-* Migrate Database |
-  skip step ini jika sudah memiliki DB pupak
+* Migrate Database or Refresh
    ```sh
    php spark migrate
    ```
-
    ```sh
    php spark migrate:refresh
    ```
-* Insert User Admin
-   phpmyadmin -> DB:pupak -> TBL:admin -> MENU:SQL 
-   copy paste sql dibawah ke text area SQLnya.
+* Seeding Database:table Admin
+   ```sh
+   php spark db:seed Admin
+   ```
    username: admin
    password: admin
-   ```sh
-   INSERT INTO `admin`(`id_admin`, `nama_admin`, `username`, `password`) VALUES ('1','admin','admin','$2a$12$9itAdyuzRwG7eDW/UmLl6OV1qGEGGWG1Hj75ZW7oP7jzojjoPrjKS')
-   ```
 * Run App
    ```sh
    php spark serve
