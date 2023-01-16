@@ -54,12 +54,12 @@
                     if (username.length == "") {
                         Swal.fire({
                         title: 'Oops...',
-                        text: 'Username must be filled dumbass!'
+                        text: 'Username harus diisi!'
                         });
                     } else if(password.length == "") {
                         Swal.fire({
                         title: 'Oops...',
-                        text: 'Password must be filled dumbass!'
+                        text: 'Password harus diisi!'
                         });
                     } else {
                         $.ajax({

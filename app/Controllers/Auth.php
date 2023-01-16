@@ -32,15 +32,15 @@ class Auth extends BaseController
                     return $this->response->setJSON([
                         'status' => true,
                         'icon' => 'success',
-                        'title' => 'Login Success!',
-                        'text' => 'You will be redirected in 3 seconds.',
+                        'title' => 'Login Berhasil!',
+                        'text' => 'Anda akan diarahkan dalam 3 detik.',
                     ]);
                 } else {
                     return $this->response->setJSON([
                         'status' => false,
                         'icon' => 'error',
                         'title' => 'Oops....',
-                        'text' => 'Password is wrong!',
+                        'text' => 'Password salah!',
                     ]);
                 }
             } else {
@@ -48,7 +48,7 @@ class Auth extends BaseController
                     'status' => false,
                     'icon' => 'error',
                     'title' => 'Oops....',
-                    'text' => 'Username doenst exist!',
+                    'text' => 'Username tidak ada!',
                 ]);
             }
         }
@@ -61,8 +61,8 @@ class Auth extends BaseController
         return $this->response->setJSON([
             'status' => true,
             'icon' => 'success',
-            'title' => 'Logout Success!',
-            'text' => 'You will be redirected in 3 seconds.'
+            'title' => 'Logout Berhasil!',
+            'text' => 'Anda akan diarahkan dalam 3 detik.'
         ]);
     }
 }

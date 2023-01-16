@@ -230,13 +230,13 @@
 
                     function deletePupuk(id) {
                         Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
+                            title: 'Anda yakin?',
+                            text: "Aksi ini tidak dapat dipulihkan!",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
+                            confirmButtonText: 'Ya, hapus!'
                         }).then(function (result) {
                             if (result.value) {
                                 $.ajax({
@@ -247,7 +247,7 @@
                                         swal.fire({
                                             position: 'top-end',
                                             icon: 'success',
-                                            title: 'Pupuk  deleted successfully',
+                                            title: 'Pupuk berhasil dihapus',
                                             showConfirmButton: false,
                                             timer: 2000
                                         });
@@ -255,7 +255,7 @@
 
                                     },
                                     error: function (xhr, ajaxOptions, thrownError) {
-                                        swal.fire("!Opps ", "Something went wrong, try again later", "error");
+                                        swal.fire("!Opps ", "Ada yang salah! coba lagi beberapa saat.", "error");
                                     }
                                 });
                             };

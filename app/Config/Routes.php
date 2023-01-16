@@ -42,7 +42,7 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
     //Profile
     $routes->group('profile', function ($routes) {
-        $routes->get('/(any)', 'Dashboard::dataProfile/$1');
+        $routes->get('(:any)', 'Dashboard::dataProfile/$1');
         $routes->post('update', 'Dashboard::updateProfile');
         $routes->post('update/password', 'Dashboard::updatePassword');
     });
